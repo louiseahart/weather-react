@@ -8,7 +8,7 @@ export default function App() {
     <div className="App">
       <Search />
       <a
-        href="https://github.com/louiseahart/weather-app"
+        href="https://https://github.com/louiseahart/weather-react"
         target="_blank"
         rel="noreferrer"
       >
