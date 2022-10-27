@@ -40,7 +40,7 @@ export default function CityWeather(props) {
     return (
       <ReactAnimatedWeather
         icon={newEmoji}
-        color="goldenrod"
+        color="white"
         size={60}
         animate={true}
       />
@@ -49,14 +49,38 @@ export default function CityWeather(props) {
 
   return (
     <div>
-      <div>
-        <div className="temperature">
-          Temperature: {Math.round(props.temperature)} °C
+      <div className="row mb-3 g-2">
+        <div className="col-3">
+          <div className="pinkborder fullheight p-2 cityname">{props.city}</div>
         </div>
-        <div className="description">Description: {props.description}</div>
-        <div className="humidity">Humidity: {Math.round(props.humidity)} </div>
-        <div className="wind">Wind: {props.wind} km/h</div>
-        <div className="weatherIcon">{displayEmoji(props.weatherIcon)}</div>
+        <div className="col-3">
+          <div className="pinkborder fullheight p-2 weatherIcon">
+            {displayEmoji(props.weatherIcon)}
+          </div>
+        </div>
+        <div className="col-3">
+          <div className="pinkborder fullheight p-2 citytemp">
+            <span className="temperatureC">
+              {Math.round(props.temperature)} °C
+            </span>
+            <br />
+            <span className="temperatureF">
+              {Math.round((props.temperature * 9) / 5 + 32)} °F
+            </span>
+            <br />
+          </div>
+        </div>
+        <div className="col-3">
+          <div className="pinkborder fullheight p-2 metrics">
+            Max: {Math.round(props.currentMax)} °C
+            <br />
+            Min: {Math.round(props.currentMin)} °C
+            <br />
+            Humidity: {Math.round(props.humidity)}
+            <br />
+            Wind Speed: {props.wind} km/h
+          </div>
+        </div>
       </div>
     </div>
   );

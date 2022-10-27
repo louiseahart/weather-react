@@ -1,29 +1,143 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+body {
+  margin-top: 50px;
+}
+.container {
+  color: #ffffff;
+  border-radius: 0.7rem;
+}
+
+.mainWrapper {
+  border: 2px solid #a767d819;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(220, 217, 249) 0%,
+    rgb(172, 224, 217) 89.8%
+  );
+  padding: 30px;
+  overflow: auto;
+}
+.pinkborder {
+  border: 2px solid #a767d819;
+  background-color: #a767d819;
+  color: #ffffff;
+  border-radius: 0.7rem;
 }
 
 #searchField {
+  border: 2px solid #a767d819;
+  background-color: #a767d819;
   transition: ease-in-out;
+  color: #a767d8bd;
 }
 
 #searchField::placeholder {
-  color: #000;
+  color: #ffffff;
 }
 
 #searchField:focus {
+  background-color: #a767d819;
   box-shadow: none;
-  border-color: #000;
+  border-color: #a767d8bd;
+  color: #a767d8bd;
 }
 
 .btn {
-  cursor: pointer;
+  transition: ease-in-out;
+  color: #ffffff;
 }
 
 .btn:hover {
-  color: #000;
+  color: #a767d8bd;
 }
 
 .btn:focus {
+  border-color: #a767d8bd;
   box-shadow: none;
+}
+
+.currentLocation {
+  font-size: 20px;
+}
+.fullheight {
+  height: 100%;
+}
+.cityname {
+  font-size: 50px;
+  text-align: left;
+  padding: 10px 20px 20px 20px;
+}
+
+.weatherIcon {
+  font-size: 50px;
+  text-align: left;
+  padding: 20px 20px 20px 20px;
+  text-align: center;
+}
+
+.weatherIcon .description {
+  font-size: 21px;
+  text-transform: capitalize;
+}
+
+.citytemp {
+  font-size: 40px;
+  text-align: left;
+  padding: 20px 20px 20px 20px;
+}
+
+.farenheight {
+  color: #ffffff;
+}
+.metrics {
+  font-size: 21px;
+  padding: 10px 40px;
+}
+.high {
+  color: #ffffff;
+  padding-right: 10px;
+}
+.low {
+  color: #ffffff;
+  padding-right: 10px;
+}
+
+.date {
+  vertical-align: middle;
+  padding: 0rem 0.75rem 0.375rem 0.75rem;
+}
+
+.time {
+  vertical-align: middle;
+  padding: 0rem 0.75rem 0.375rem 0.75rem;
+}
+
+.Forecast {
+  color: #ffffff;
+}
+
+.title {
+  border-top: 2px solid #a767d819;
+  border-right: 2px solid #a767d819;
+  border-bottom: 2px solid #a767d819;
+  border-left: 2px solid #a767d819;
+  background-color: #a767d819;
+  color: #ffffff;
+  border-radius: 0.7rem;
+  vertical-align: middle;
+  padding-bottom: 5px;
+}
+
+.weekdayTemp {
+  padding-left: 37px;
+}
+.footer {
+  color: #a767d8bd;
+  font-size: 80%;
+  font-weight: 400;
+  padding: 10px 10px 10px 0px;
+  margin-bottom: 50px;
+}
+
+.footer a {
+  color: #a767d8bd;
 }

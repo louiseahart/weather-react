@@ -1,20 +1,18 @@
 import React from "react";
 import "./App.css";
+import Footer from "./Footer";
 
 import Search from "./Search";
 
 export default function App() {
   return (
-    <div className="App">
-      <Search />
-      <a
-        href="https://github.com/louiseahart/weather-react"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Open-source code
-      </a>
-      , by Louise Hart
+    <div>
+      <div className="container mainWrapper">
+        <Search />
+      </div>
+      <div className="container">
+        <Footer />
+      </div>
     </div>
   );
 }

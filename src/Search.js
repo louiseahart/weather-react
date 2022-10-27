@@ -23,6 +23,8 @@ export default function Search() {
   let [humidity, setHumidity] = useState(null);
   let [wind, setWind] = useState(null);
   let [weatherIcon, setWeatherIcon] = useState(null);
+  let [currentMax, setCurrentMax] = useState(null);
+  let [currentMin, setCurrentMin] = useState(null);
 
   function receiveAPIContent(response) {
     console.log("receiveAPIContent received:", response);
@@ -31,36 +33,54 @@ export default function Search() {
     setHumidity(response.data.main.humidity);
     setWind(response.data.wind.speed);
     setWeatherIcon(response.data.weather[0].main);
+    setCurrentMax(response.data.main.temp_max);
+    setCurrentMin(response.data.main.temp_min);
   }
 
   return (
     <div>
-      <h1>Weather App</h1>
       <div>
-        <form onSubmit={searchInput}>
-          <div>
-            <div>
+        <form className="search" onSubmit={searchInput}>
+          <div className="row mb-2 g-2">
+            <div className="col-7">
               <input
+                type="text"
                 id="searchField"
-                className="form-control"
-                placeholder="Enter a City . . ."
-                type="search"
+                className="form-control pinkborder"
+                placeholder="Search . . ."
                 onChange={updateCity}
               />
-              <button type="submit" className="btn" onClick={searchInput}>
+            </div>
+            <div className="col-2">
+              <button
+                type="submit"
+                className="btn pinkborder"
+                onClick={searchInput}
+              >
                 Search
               </button>
             </div>
+            {/* <div className="col-3"> */}
+            {/* <button */}
+            {/* type="submit" */}
+            {/* className="btn pinkborder currentLocationButton" */}
+            {/* > */}
+            {/* Current Location */}
+            {/* </button> */}
+            {/* </div> */}
           </div>
         </form>
       </div>
       <div>
         <CityWeather
+          city={city}
           temperature={temperature}
           description={description}
           humidity={humidity}
           wind={wind}
           weatherIcon={weatherIcon}
+          currentMax={currentMax}
+          currentMin={currentMin}
         />
       </div>
     </div>
