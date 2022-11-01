@@ -1,6 +1,5 @@
 import React from "react";
 
-import FormatDate from "./FormatDate";
 import { formatWeekday } from "./FormatTime";
 import { displayEmoji } from "./DisplayEmoji";
 

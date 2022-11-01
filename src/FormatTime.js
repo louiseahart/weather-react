@@ -1,5 +1,3 @@
-import React from "react";
-
 export function formatTime(givenDate) {
   let days = [
     "Sunday",
