@@ -1,52 +1,10 @@
 import React from "react";
-import ReactAnimatedWeather from "react-animated-weather";
+
+import { displayEmoji } from "./DisplayEmoji";
+import { formatDate } from "./FormatDate";
+import { formatTime } from "./FormatTime";
 
 export default function CityWeather(props) {
-  function displayEmoji(weatherConditions) {
-    let newEmoji = "";
-
-    switch (weatherConditions) {
-      case "Clear":
-        newEmoji = "CLEAR_DAY";
-        break;
-      case "Thunderstorm":
-        newEmoji = "SLEET";
-        break;
-      case "Drizzle":
-        newEmoji = "RAIN";
-        break;
-      case "Rain":
-        newEmoji = "SLEET";
-        break;
-      case "Snow":
-        newEmoji = "SNOW";
-        break;
-      case "Mist":
-        newEmoji = "FOG";
-        break;
-      case "Fog":
-        newEmoji = "FOG";
-        break;
-      case "Tornado":
-        newEmoji = "WIND";
-        break;
-      case "Clouds":
-        newEmoji = "CLOUDY";
-        break;
-
-      default:
-        newEmoji = "Did not find emoji for: " + weatherConditions;
-    }
-    return (
-      <ReactAnimatedWeather
-        icon={newEmoji}
-        color="white"
-        size={60}
-        animate={true}
-      />
-    );
-  }
-
   return (
     <div>
       <div className="row mb-3 g-2">
@@ -55,7 +13,9 @@ export default function CityWeather(props) {
         </div>
         <div className="col-3">
           <div className="pinkborder fullheight p-2 weatherIcon">
-            {displayEmoji(props.weatherIcon)}
+            {displayEmoji(props.weatherIcon, 60)}
+            <br />
+            {props.weatherIcon}
           </div>
         </div>
         <div className="col-3">
@@ -81,6 +41,10 @@ export default function CityWeather(props) {
             Wind Speed: {props.wind} km/h
           </div>
         </div>
+      </div>
+      <div className="row mb-2 g-2 pinkborder">
+        <div className="col-9 date">{formatDate(props.date)}</div>
+        <div className="col-3 time">{formatTime(props.date)}</div>
       </div>
     </div>
   );
