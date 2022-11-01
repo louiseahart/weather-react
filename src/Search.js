@@ -58,7 +58,7 @@ export default function Search() {
       <div>
         <form className="search" onSubmit={searchInput}>
           <div className="row mb-2 g-2">
-            <div className="col-7">
+            <div className="col-6">
               <input
                 type="text"
                 id="searchField"
@@ -67,7 +67,7 @@ export default function Search() {
                 onChange={updateCity}
               />
             </div>
-            <div className="col-2">
+            <div className="col-6">
               <button
                 type="submit"
                 className="btn pinkborder"
@@ -76,14 +76,6 @@ export default function Search() {
                 Search
               </button>
             </div>
-            {/* <div className="col-3"> */}
-            {/* <button */}
-            {/* type="submit" */}
-            {/* className="btn pinkborder currentLocationButton" */}
-            {/* > */}
-            {/* Current Location */}
-            {/* </button> */}
-            {/* </div> */}
           </div>
         </form>
       </div>
