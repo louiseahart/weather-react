@@ -6,20 +6,8 @@ import CityWeather from "./CityWeather";
 import Forecast from "./Forecast";
 
 export default function Search() {
+  let [citySearch, setCitySearch] = useState(null);
   let [city, setCity] = useState("");
-
-  function updateCity(event) {
-    setCity(event.target.value);
-  }
-
-  function searchInput(event) {
-    event.preventDefault();
-    let apiKey = "f8c3365e92d7af34ccb10db1054b98ab";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-    axios.get(apiUrl).then(receiveAPIContent);
-  }
-
   let [temperature, setTemperature] = useState(null);
   let [description, setDescription] = useState(null);
   let [humidity, setHumidity] = useState(null);
@@ -29,6 +17,23 @@ export default function Search() {
   let [currentMin, setCurrentMin] = useState(null);
   let [forecastDays, setForecastDays] = useState(null);
   let [currentDate, setCurrentDate] = useState(null);
+  
+
+  function citySearchBoxUpdated(event) {
+    setCitySearch(event.target.value);
+  }
+
+  function citySearchSubmitted(event) {
+    setCity(citySearch);
+
+    event.preventDefault();
+    console.log(event);
+    let apiKey = "f8c3365e92d7af34ccb10db1054b98ab";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(receiveAPIContent);
+  }
+
 
   function receiveAPIContent(response) {
     const lat = response.data.coord.lat;
@@ -56,7 +61,7 @@ export default function Search() {
   return (
     <div>
       <div>
-        <form className="search" onSubmit={searchInput}>
+        <form className="search" onSubmit={citySearchSubmitted}>
           <div className="row mb-2 g-2">
             <div className="col-6">
               <input
@@ -64,14 +69,14 @@ export default function Search() {
                 id="searchField"
                 className="form-control pinkborder"
                 placeholder="Search . . ."
-                onChange={updateCity}
+                onChange={citySearchBoxUpdated}
               />
             </div>
             <div className="col-6">
               <button
                 type="submit"
                 className="btn pinkborder"
-                onClick={searchInput}
+                onClick={citySearchSubmitted}
               >
                 Search
               </button>
